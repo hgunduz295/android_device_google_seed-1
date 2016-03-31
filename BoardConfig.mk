@@ -13,9 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FORCE_32_BIT := true
-
--include device/cyanogen/msm8916-common/BoardConfigCommon.mk
+# inherit from the proprietary version
+-include vendor/google/seed/BoardConfigVendor.mk
 
 DEVICE_PATH := device/google/seed
 
@@ -24,34 +23,33 @@ TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 TARGET_CPU_CORTEX_A53 := true
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := MSM8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a9
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_SMP := true
 
 # Kernel
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_RAMDISK_OFFSET     := 0x01000000
-TARGET_KERNEL_CONFIG := cyanogenmod_seed_defconfig
-
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-
-# Camera
-BOARD_CAMERA_SENSORS := s5k5e2_olq5f19 s5k3m2_olqba20
-TARGET_USE_VENDOR_CAMERA_EXT := true
-USE_DEVICE_SPECIFIC_CAMERA := true
-
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-
-# Flags
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-# GPS
-USE_DEVICE_SPECIFIC_GPS := true
-TARGET_NO_RPC := true
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+#TARGET_KERNEL_SOURCE := kernel/msm/seed
+#TARGET_KERNEL_ARCH := arm
+#TARGET_KERNEL_CONFIG := msm8916-perf_defconfig
+#TARGET_KERNEL_APPEND_DTB := true
+#BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -61,16 +59,30 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33553920
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33553920
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612224
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13295385600
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+RECOVERY_VARIANT                := twrp
+TARGET_USERIMAGES_USE_EXT4 	:= true
+BOARD_HAS_NO_SELECT_BUTTON 	:= true
+ENABLE_ADB_DIAG_IN_PWROFF_CHARGE := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/twrp.fstab
+
+# TWRP
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA		:= true
+RECOVERY_SDCARD_ON_DATA 	:= true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 BOARD_SEPOLICY_DIRS += \
-    device/google/seed/sepolicy
+    $(DEVICE_PATH)/sepolicy
 
 # inherit from the proprietary version
 -include vendor/google/seed/BoardConfigVendor.mk
