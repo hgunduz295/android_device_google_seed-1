@@ -72,6 +72,7 @@ ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
 
 # OEM props
+import /oem/oem.prop ro.product.device
 import /oem/oem.prop ro.product.name
 import /oem/oem.prop ro.product.manufacturer
 import /oem/oem.prop ro.product.model
