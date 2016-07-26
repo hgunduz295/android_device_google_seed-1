@@ -17,8 +17,6 @@ $(call inherit-product, device/google/seed/full_seed.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_THUMBPRINT=6.0.1/MOB30Q/2975880:user/release-keys
-
 PRODUCT_NAME := cm_seed
 BOARD_VENDOR := google
 PRODUCT_DEVICE := seed
@@ -32,3 +30,9 @@ PRODUCT_BRAND := Google
 TARGET_VENDOR := Google
 TARGET_VENDOR_PRODUCT_NAME := Seed
 TARGET_VENDOR_DEVICE_NAME := seed
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_THUMBPRINT=6.0.1/MOB30Q/2975880:user/release-keys \
+    BUILD_FINGERPRINT=google/seed_l8150/seed:6.0.1/MOB30Q/2975880:user/release-keys \
+    PRIVATE_BUILD_DESC="seed_l8150-user 6.0.1 MOB30Q 2975880 release-keys" \
+    BUILD_ID=MOB30Q
