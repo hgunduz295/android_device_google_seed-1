@@ -32,7 +32,7 @@ TARGET_VENDOR_PRODUCT_NAME := Seed
 TARGET_VENDOR_DEVICE_NAME := seed
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_THUMBPRINT=6.0.1/MOB30Q/2975880:user/release-keys \
-    BUILD_FINGERPRINT=google/seed_l8150/seed:6.0.1/MOB30Q/2975880:user/release-keys \
-    PRIVATE_BUILD_DESC="seed_l8150-user 6.0.1 MOB30Q 2975880 release-keys" \
-    BUILD_ID=MOB30Q
+    BUILD_THUMBPRINT=7.0/NRD91J/3306052:user/release-keys \
+    BUILD_FINGERPRINT=google/seed_l8150/seed:7.0/NRD91J/3306052:user/release-keys \
+    PRIVATE_BUILD_DESC="seed_l8150-user 7.0 NRD91J 3306052 release-keys" \
+    BUILD_ID=NRD91J
