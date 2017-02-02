@@ -18,11 +18,6 @@
 
 DEVICE_PATH := device/google/seed
 
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-
-TARGET_CPU_CORTEX_A53 := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
@@ -46,6 +41,9 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 
+# Prebuilt kernel
+TARGET_PREBUILT_KERNEL := device/google/seed/kernel
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33553920
@@ -62,17 +60,6 @@ ENABLE_ADB_DIAG_IN_PWROFF_CHARGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/twrp.fstab
 BOARD_SUPPRESS_SECURE_ERASE := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy
-
-# inherit from the proprietary version
--include vendor/google/seed/BoardConfigVendor.mk
 
 # TWRP
 TW_THEME := portrait_hdpi
