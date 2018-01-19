@@ -38,6 +38,7 @@
 #include "init_msm8916.h"
 
 using android::base::GetProperty;
+using android::init::property_set;
 
 char const *heapstartsize;
 char const *heapgrowthlimit;
