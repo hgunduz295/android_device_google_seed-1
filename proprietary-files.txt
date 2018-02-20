@@ -124,11 +124,6 @@ vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS (crackling)
 -lib/libloc_api_v02.so:vendor/lib/libloc_api_v02.so|74df1667c42701ef550ba73db6c5ae63542913ac
@@ -257,6 +252,9 @@ vendor/lib/libthermalioctl.so
 bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
+
+# Widevine - from angler - OPR6.170623.017 factory image
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
 
 # WLAN (crackling)
 lib/libwcnss_qmi.so:vendor/lib/libwcnss_qmi.so|371a27ab7bcb8354433d6028a5ad422ebc1783f2
