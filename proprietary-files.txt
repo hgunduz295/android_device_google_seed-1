@@ -163,7 +163,6 @@ etc/firmware/a300_pm4.fw:vendor/firmware/a300_pm4.fw
 
 # Media (crackling)
 lib/libOmxVdecHevc.so|560d662a6120cc23bc0db9af51230ce60d756eda
-vendor/lib/libHevcSwDecoder.so|70e9c70aeb4a245433f2501d47ee01eb9ba3e5e0
 vendor/lib/libmmosal.so|89dfcf01a209a6b0ea586d292753c0502312e4bd
 vendor/lib/libOmxAacDec.so|fd3b375d5f477474154de3ac4a7db9b91158f0f4
 vendor/lib/libOmxEvrcDec.so|f5f8b7702f0e6858ff473d740be0bcf886abaa9a
