@@ -97,18 +97,18 @@ void init_target_properties()
     std::string name = GetProperty("ro.product.name", "");
 
     if (name == "ctih220") {
-        property_override("ro.product.device", "ctih220_sprout");
-        property_override("ro.build.fingerprint", "google/ctih220/ctih220_sprout:7.1.1/N0F27E/4103848:user/release-keys");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "ctih220_sprout");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/ctih220/ctih220_sprout:7.1.1/N0F27E/4103848:user/release-keys");
     } else if (name == "imobileiq2") {
-        property_override("ro.product.device", "imobileiq2_sprout");
-        property_override("ro.build.fingerprint", "google/imobileiq2/imobileiq2_sprout:7.1.1/N0F27E/4103848:user/release-keys");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "imobileiq2_sprout");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/imobileiq2/imobileiq2_sprout:7.1.1/N0F27E/4103848:user/release-keys");
     } else if (name == "gm4g") {
-        property_override("ro.product.device", "gm4g_sprout");
-        property_override("ro.build.fingerprint", "google/gm4g/gm4g_sprout:7.1.1/N0F27E/4103848:user/release-keys");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "gm4g_sprout");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/gm4g/gm4g_sprout:7.1.1/N0F27E/4103848:user/release-keys");
     } else if (name == "gm4g_s") {
-        property_override("ro.product.device", "gm4g_s_sprout");
-        property_override("ro.build.fingerprint", "google/gm4g_s/gm4g_s_sprout:7.1.1/N0F27E/4103848:user/release-keys");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "gm4g_s_sprout");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/gm4g_s/gm4g_s_sprout:7.1.1/N0F27E/4103848:user/release-keys");
     }
 
-    property_override("ro.build.description", "seed_l8150-user 7.1.1 N0F27E 4103848 release-keys");
+    property_override_dual("ro.build.description", "ro.vendor.build.description", "seed_l8150-user 7.1.1 N0F27E 4103848 release-keys");
 }
