@@ -90,8 +90,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/izat.conf:system/vendor/etc/izat.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/vendor/etc/sap.conf
 
-# HWUI
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Init scripts
 PRODUCT_PACKAGES += \
